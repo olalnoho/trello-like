@@ -1,27 +1,26 @@
 import React, { useState } from 'react'
 
 export const AuthContext = React.createContext({
-   userDetails: {},
-   setUserDetails: () => { },
-   isAuth: false,
-   setIsAuth: () => { }
+   authDetails: {},
+   setAuthDetails: () => { }
 })
 
 export default props => {
-   const [userDetails, setUserDetails] = useState({
-      username: '',
-      email: '',
-      name: '',
-      id: ''
+   const [authDetails, setAuthDetails] = useState({
+      user: {
+         username: '',
+         email: '',
+         name: '',
+         id: ''
+      },
+      isAuth: false,
+      initAuthLoad: true
    })
 
-   const [isAuth, setIsAuth] = useState(false)
 
    return <AuthContext.Provider value={{
-      userDetails,
-      setUserDetails,
-      isAuth,
-      setIsAuth
+      authDetails,
+      setAuthDetails
    }}>
       {props.children}
    </AuthContext.Provider>

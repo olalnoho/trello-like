@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthContext'
 import useFormValidation from '../../hooks/useFormValidation'
 
 const Register = () => {
-   const { setUserDetails, setIsAuth, isAuth } = useContext(AuthContext)
+   const { authDetails, setAuthDetails } = useContext(AuthContext)
    const { handleChange, values } = useFormValidation({
       name: '',
       username: '',
@@ -13,7 +13,7 @@ const Register = () => {
       email: ''
    })
 
-   if (isAuth) {
+   if (authDetails.isAuth) {
       return <Redirect to="/" />
    }
 
@@ -21,8 +21,7 @@ const Register = () => {
       e.preventDefault()
       axios.post('/api/users/register', { ...values })
          .then(({ data }) => {
-            setUserDetails(data)
-            setIsAuth(true)
+            setAuthDetails({ ...authDetails, user: data, isAuth: true })
          })
    }
    return (
