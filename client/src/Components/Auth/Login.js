@@ -4,14 +4,14 @@ import { AuthContext } from '../../Context/AuthContext'
 import { Redirect } from 'react-router-dom'
 import useFormValidation from '../../hooks/useFormValidation'
 const Login = () => {
-   const { userDetails, setUserDetails } = useContext(AuthContext)
+   const { isAuth, setIsAuth, setUserDetails } = useContext(AuthContext)
    const [hasErrors, setHasErrors] = useState(false)
    const { handleChange, values } = useFormValidation({
       email: '',
       password: ''
    })
 
-   if (userDetails.username !== '') {
+   if (isAuth) {
       return <Redirect to="/" />
    }
 
@@ -19,7 +19,8 @@ const Login = () => {
       e.preventDefault()
       axios.post('/api/auth/login', { ...values })
          .then(({ data }) => {
-            setUserDetails({ name: data.name, username: data.username, email: data.email })
+            setUserDetails({ name: data.name, username: data.username, email: data.email, id: data.id })
+            setIsAuth(true)
          })
          .catch(err => {
             setHasErrors(true)

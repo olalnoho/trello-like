@@ -35,7 +35,15 @@ router.post('/login', async (req, res) => {
          })
       }
 
-      res.json(user)
+      req.session.userId = user.id
+
+      res.json({
+         email: user.email,
+         name: user.name,
+         username: user.username,
+         id: user.id,
+      })
+
    } catch (err) {
       return res.status(500).json({
          success: false,
@@ -54,7 +62,7 @@ router.get('/me', async (req, res) => {
    }
 
    const [user] = await db('users')
-      .select('*')
+      .select('username', 'email', 'name', 'id')
       .where({ id: userId })
 
    res.json(user)

@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
          password: hashedPw,
          email: email.toLowerCase(),
          name
-      }, '*')
+      }, ['username', 'name', 'email', 'id'])
 
    req.session.userId = user.id
    return res.json(user)

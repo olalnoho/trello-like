@@ -1,7 +1,11 @@
-import React from 'react'
-import useFormValidation from '../../hooks/useFormValidation'
+import React, { useContext } from 'react'
 import axios from 'axios'
-const Login = () => {
+import { Redirect } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthContext'
+import useFormValidation from '../../hooks/useFormValidation'
+
+const Register = () => {
+   const { setUserDetails, setIsAuth, isAuth } = useContext(AuthContext)
    const { handleChange, values } = useFormValidation({
       name: '',
       username: '',
@@ -9,10 +13,17 @@ const Login = () => {
       email: ''
    })
 
+   if (isAuth) {
+      return <Redirect to="/" />
+   }
+
    const handleSubmit = e => {
       e.preventDefault()
       axios.post('/api/users/register', { ...values })
-         .then(res => console.log(res))
+         .then(({ data }) => {
+            setUserDetails(data)
+            setIsAuth(true)
+         })
    }
    return (
       <div className="container auth">
@@ -51,4 +62,4 @@ const Login = () => {
    )
 }
 
-export default Login
+export default Register
