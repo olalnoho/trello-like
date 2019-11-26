@@ -1,0 +1,25 @@
+{
+  "name": "redissessions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f ./config/dev.env nodemon index",
+    "dev": "env-cmd -f ./config/dev.env concurrently \"nodemon index.js\" \"npm start --prefix client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-redis": "^4.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "knex": "^0.20.2",
+    "pg": "^7.14.0",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0"
+  }
+}

@@ -1,0 +1,48 @@
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: darkslateblue;
+  color: white;
+  box-shadow: 0 0.15rem 1rem rgb(36, 35, 35);
+
+  &__logo {
+    margin-left: 1rem;
+    h2 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__nav {
+    ul {
+      padding: 1rem;
+      display: flex;
+
+      li {
+        transition: border-bottom 0.2s;
+        font-size: 1.4rem;
+        margin-right: 1rem;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+          border-bottom: 1px solid #928bc4;
+        }
+
+        a {
+          padding: 0.7rem 1.4rem;
+        }
+
+        .active {
+          background-color: darken(darkslateblue, 5%);
+        }
+      }
+    }
+  }
+}

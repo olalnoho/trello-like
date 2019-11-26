@@ -1,0 +1,24 @@
+.landing {
+  height: calc(100vh);
+  background-color: #214470;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  &__box {
+    max-width: 60%;
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+    }
+
+    &-actions {
+      width: 20rem;
+      margin: auto;
+      font-size: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
