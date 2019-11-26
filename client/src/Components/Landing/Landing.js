@@ -1,16 +1,48 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
+import { AuthContext } from '../../Context/AuthContext'
+
 const Landing = () => {
+   const {
+      authDetails: {
+         user,
+         isAuth,
+         initAuthLoad
+      }
+   } = useContext(AuthContext)
+
+   const guestLinks = (
+      <>
+         <Link to="/register" className="btn btn--primary"> Sign up </Link>
+         <Link to="/login" className="btn btn--secondary"> Log in </Link>
+      </>
+   )
+
+   const authLinks = (
+      <>
+         <Link to="/register" className="btn btn--primary"> Dashboard </Link>
+         <Link to="/login" className="btn btn--secondary"> Log out </Link>
+      </>
+   )
+
+
+
+   console.log(user, isAuth, initAuthLoad)
    return (
       <div className="landing">
-         <div className="landing__box">
-            <h1>Welcome to the session test website!</h1>
+         {!initAuthLoad && <div className="landing__box">
+            {
+               isAuth && user.username ? (
+                  <h1> Welcome, {user.username} </h1>
+               ) :
+                  (
+                     <h1>Welcome to the session test website!</h1>
+                  )}
             <div className="landing__box-actions">
-               <Link to="/register" className="btn btn--primary"> Sign up </Link>
-               <Link to="/login" className="btn btn--secondary"> Log in </Link>
+               {isAuth ? authLinks : guestLinks}
             </div>
-         </div>
+         </div>}
       </div>
    )
 }

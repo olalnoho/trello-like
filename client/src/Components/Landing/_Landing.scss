@@ -1,5 +1,5 @@
 .landing {
-  height: calc(100vh);
+  height: 100vh;
   background-color: #214470;
   display: flex;
   align-items: center;
@@ -7,18 +7,20 @@
   color: white;
 
   &__box {
-    max-width: 60%;
     h1 {
       text-align: center;
       font-size: 5rem;
     }
 
     &-actions {
-      width: 20rem;
+      width: 100%;
       margin: auto;
       font-size: 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      a {
+        margin-right: 1rem;
+      }
     }
   }
 }

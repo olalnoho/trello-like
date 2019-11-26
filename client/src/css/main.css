@@ -69,7 +69,7 @@
 }
 
 .landing {
-  height: calc(100vh);
+  height: 100vh;
   background-color: #214470;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,25 +83,25 @@
   color: white;
 }
 
-.landing__box {
-  max-width: 60%;
-}
-
 .landing__box h1 {
   text-align: center;
   font-size: 5rem;
 }
 
 .landing__box-actions {
-  width: 20rem;
+  width: 100%;
   margin: auto;
   font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.landing__box-actions a {
+  margin-right: 1rem;
 }
 
 .auth {

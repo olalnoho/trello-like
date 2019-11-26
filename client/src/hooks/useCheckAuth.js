@@ -2,10 +2,9 @@ import { useContext, useEffect } from 'react'
 import axios from 'axios'
 
 import { AuthContext } from '../Context/AuthContext'
-
-const useCheckAuth = props => {
+// Maybe move this to the context file
+const useCheckAuth = () => {
    const {
-      authDetails,
       setAuthDetails,
    } = useContext(AuthContext)
 
@@ -34,8 +33,6 @@ const useCheckAuth = props => {
             }))
          })
    }, [setAuthDetails])
-
-   console.log(authDetails)
 }
 
 export default useCheckAuth
