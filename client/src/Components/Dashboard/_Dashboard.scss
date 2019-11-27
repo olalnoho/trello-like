@@ -1,0 +1,57 @@
+.dashboard {
+  color: white;
+  &__add {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 12rem;
+    .pointer {
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .add-project {
+      cursor: pointer;
+      height: 2rexm;
+      width: 2px;
+      background-color: #fff;
+
+      &::after {
+        content: "";
+        height: 2rem;
+        width: 2px;
+        display: block;
+        background-color: #fff;
+        transform: rotate(90deg);
+      }
+    }
+
+    strong {
+      text-align: center;
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__projects {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    .project {
+      h3 {
+        text-align: center;
+      }
+      padding: 1rem;
+      max-height: 40rem;
+      min-width: 20rem;
+      border: 1px solid white;
+      margin-right: 2rem;
+    }
+  }
+}
