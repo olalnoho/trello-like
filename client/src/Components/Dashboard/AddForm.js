@@ -1,10 +1,14 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 const AddForm = () => {
+   const [title, setTitle] = useState('')
    return (
       <form className="form" autoComplete="off">
-         <label htmlFor="title">Project title</label>
-         <input type="text" name="title" />
+         <label htmlFor="title">Title</label>
+         <input
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            type="text"
+            name="title" />
          <input type="submit" className="btn btn--primary" />
       </form>
    )

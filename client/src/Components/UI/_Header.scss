@@ -51,5 +51,8 @@
 @media only screen and(max-width: 700px) {
   .main-header {
     flex-direction: column;
+    &__logo {
+      margin: 0 0 1rem 0;
+    }
   }
 }
