@@ -20,16 +20,10 @@ const ModalOverlay = props => {
 }
 
 const Modal = props => {
-   return (
-      <>
-         {props.show &&
-            <>
-               <Backdrop onClick={props.onCancel} />
-               <ModalOverlay {...props} />
-            </>
-         }
-      </>
-   )
+   return props.show && <>
+      <Backdrop onClick={props.onCancel} />
+      <ModalOverlay {...props} />
+   </>
 }
 
 export default Modal
