@@ -26,9 +26,6 @@ const Landing = () => {
       </>
    )
 
-
-
-   console.log(user, isAuth, initAuthLoad)
    return (
       <div className="landing">
          {!initAuthLoad && <div className="landing__box">

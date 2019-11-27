@@ -13,9 +13,7 @@ router.post('/login', async (req, res) => {
    try {
       const [user] = await db('users')
          .select('*')
-         .where({
-            email
-         })
+         .where({ email })
 
       if (!user) {
          return res.status(401).json({
@@ -46,6 +44,22 @@ router.post('/login', async (req, res) => {
 
    } catch (err) {
       return res.status(500).json({
+         success: false,
+         message: 'Server error'
+      })
+   }
+})
+
+router.post('/logout', async (req, res) => {
+   try {
+      req.session.destroy()
+      res.clearCookie('sid')
+      res.json({
+         success: true,
+         message: 'OK'
+      })
+   } catch (error) {
+      res.status(500).json({
          success: false,
          message: 'Server error'
       })
