@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Hind&display=swap");
 @import "./vars";
 @import "./components";
+@import "../Components/UI/Backdrop";
+@import "../Components/UI/Modal";
 @import "../Components/Landing/Landing";
 @import "../Components/Auth/Auth";
 @import "../Components/UI/Header";

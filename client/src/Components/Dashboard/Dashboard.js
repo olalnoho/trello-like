@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from '../UI/Modal'
 
 const Dashboard = () => {
+   const [showModal, setShowModal] = useState(false)
    return (
       <div className="container dashboard">
+         <Modal show={showModal} onCancel={e => setShowModal(false)}>
+            Hello
+         </Modal>
          <div className="dashboard__add">
             <strong>Add project</strong>
-            <div className="pointer">
+            <div onClick={e => {
+               setShowModal(true)
+            }} className="pointer">
                <span className="add-project"></span>
             </div>
          </div>
