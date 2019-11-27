@@ -278,14 +278,23 @@
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .dashboard__projects .project {
-  border: 2px solid darkolivegreen;
+  border: 1px solid white;
   background-color: darkslateblue;
   color: white;
   min-height: 30rem;
+  -webkit-transition: all 0.34s;
+  transition: all 0.34s;
+}
+
+.dashboard__projects .project:hover {
+  -webkit-transform: translateY(-0.7rem);
+          transform: translateY(-0.7rem);
+  -webkit-box-shadow: 1px 2px 0.4rem black;
+          box-shadow: 1px 2px 0.4rem black;
 }
 
 @media only screen and (max-width: 1000px) {
