@@ -72,6 +72,18 @@
   cursor: pointer;
 }
 
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .landing {
   height: 100vh;
   background-color: #214470;
@@ -143,6 +155,7 @@
 
 .main-header {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -201,10 +214,10 @@
 
 .dashboard {
   color: white;
+  overflow: auto;
 }
 
 .dashboard__add {
-  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,26 +270,36 @@
 }
 
 .dashboard__projects {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 1rem;
+  padding: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .dashboard__projects .project {
-  padding: 1rem;
-  max-height: 40rem;
-  min-width: 20rem;
-  border: 1px solid white;
-  margin-right: 2rem;
+  border: 2px solid darkolivegreen;
+  background-color: darkslateblue;
+  color: white;
+  min-height: 30rem;
 }
 
-.dashboard__projects .project h3 {
-  text-align: center;
+@media only screen and (max-width: 1000px) {
+  .dashboard__projects {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .dashboard__projects {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 * {

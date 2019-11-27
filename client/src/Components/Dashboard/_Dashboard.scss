@@ -1,8 +1,8 @@
 .dashboard {
   color: white;
+  overflow: auto;
   &__add {
-    position: absolute;
-
+    // position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,19 +39,29 @@
   }
 
   &__projects {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    padding: 1rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
     .project {
-      h3 {
-        text-align: center;
-      }
-      padding: 1rem;
-      max-height: 40rem;
-      min-width: 20rem;
-      border: 1px solid white;
-      margin-right: 2rem;
+      border: 2px solid darkolivegreen;
+      background-color: $secondary-color;
+      color: white;
+      min-height: 30rem;
     }
+  }
+}
+
+@media only screen and(max-width: 1000px) {
+  .dashboard__projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and(max-width: 600px) {
+  .dashboard__projects {
+    grid-template-columns: 1fr;
   }
 }
