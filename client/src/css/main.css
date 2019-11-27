@@ -392,6 +392,12 @@
   color: white;
 }
 
+@media only screen and (min-width: 500px) {
+  .dashboard-modal {
+    min-width: 50rem;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .dashboard__projects {
     -ms-grid-columns: (1fr)[2];
@@ -416,12 +422,6 @@
   .dashboard__projects {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-  }
-}
-
-@media only screen and (min-width: 500px) {
-  .dashboard-modal {
-    min-width: 50rem;
   }
 }
 

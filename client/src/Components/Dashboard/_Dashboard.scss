@@ -106,6 +106,15 @@
   }
 }
 
+// --- Min queries ---
+@media only screen and(min-width: 500px) {
+  // Modal under 500px is set to 80%.
+  .dashboard-modal {
+    min-width: 50rem;
+  }
+}
+
+// --- Max queries ----
 @media only screen and(max-width: 1000px) {
   .dashboard__projects {
     grid-template-columns: repeat(2, 1fr);
@@ -127,11 +136,5 @@
 @media only screen and(max-width: 600px) {
   .dashboard__projects {
     grid-template-columns: 1fr;
-  }
-}
-
-@media only screen and(min-width: 500px) {
-  .dashboard-modal {
-    min-width: 50rem;
   }
 }
