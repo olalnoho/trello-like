@@ -21,7 +21,7 @@ const Landing = () => {
 
    const authLinks = (
       <>
-         <Link to="/register" className="btn btn--primary"> Dashboard </Link>
+         <Link to="/dashboard" className="btn btn--primary"> Dashboard </Link>
          <Link to="/login" className="btn btn--secondary"> Log out </Link>
       </>
    )

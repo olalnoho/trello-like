@@ -13,7 +13,7 @@ CREATE TABLE users (
 
 CREATE TABLE projects (
    id SERIAL PRIMARY KEY,
-   "name" VARCHAR(255),
+   title VARCHAR(255),
    creator INT,
    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    FOREIGN KEY(creator) REFERENCES users(id)

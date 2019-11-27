@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
    try {
-      req.session.destroy()
+      await req.session.destroy()
       res.clearCookie('sid')
       res.json({
          success: true,

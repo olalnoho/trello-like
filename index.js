@@ -17,7 +17,7 @@ app.use(
       secret: process.env.SESSION_SECRET || 'asdaj3ijt893893nk',
       store: new RedisStore({ client: redisClient }),
       cookie: {
-         maxAge: (1000 * 60 * 60) * 1, // One hour
+         maxAge: (1000 * 60 * 60 * 24) * 1, // 1 Day
          secure: false,
       }
    })
