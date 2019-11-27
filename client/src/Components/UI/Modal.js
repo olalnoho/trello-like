@@ -8,6 +8,7 @@ const ModalOverlay = props => {
       <div className={`modal ${props.className}`}>
          <header className={props.headerClass}>
             {props.header}
+            <span onClick={props.onCancel} className="modal__close">X</span>
          </header>
          <main className={props.contentClass}>
             {props.children}

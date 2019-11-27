@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Modal from '../UI/Modal'
+import AddForm from './AddForm'
 
 const Dashboard = () => {
    const [showModal, setShowModal] = useState(false)
@@ -15,7 +16,7 @@ const Dashboard = () => {
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            Hello
+            <AddForm />
          </Modal>
          <div className="dashboard__add">
             <strong>Add project</strong>
