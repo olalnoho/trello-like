@@ -60,6 +60,27 @@
   }
 }
 
+.dashboard-modal {
+  display: flex;
+  flex-direction: column;
+  &__header {
+    color: white;
+    padding: 1rem;
+    background-color: $primary-color;
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+    flex: 1;
+  }
+}
+
 @media only screen and(max-width: 1000px) {
   .dashboard__projects {
     grid-template-columns: repeat(2, 1fr);

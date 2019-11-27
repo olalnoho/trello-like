@@ -5,7 +5,16 @@ const Dashboard = () => {
    const [showModal, setShowModal] = useState(false)
    return (
       <div className="container dashboard">
-         <Modal show={showModal} onCancel={e => setShowModal(false)}>
+         <Modal
+            show={showModal}
+            className="dashboard-modal"
+            onCancel={e => setShowModal(false)}
+            header={<h2>
+               Add a new Project
+            </h2>}
+            headerClass="dashboard-modal__header"
+            contentClass="dashboard-modal__content"
+         >
             Hello
          </Modal>
          <div className="dashboard__add">

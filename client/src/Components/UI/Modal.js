@@ -4,9 +4,16 @@ import Backdrop from "./Backdrop"
 
 
 const ModalOverlay = props => {
-   const content = (<div className={`modal ${props.className}`}>
-      {props.children}
-   </div>)
+   const content = (
+      <div className={`modal ${props.className}`}>
+         <header className={props.headerClass}>
+            {props.header}
+         </header>
+         <main className={props.contentClass}>
+            {props.children}
+         </main>
+      </div>
+   )
 
    return ReactDOM.createPortal(content, document.getElementById('modal-root'))
 }
