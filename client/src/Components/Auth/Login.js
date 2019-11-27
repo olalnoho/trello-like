@@ -31,6 +31,7 @@ const Login = () => {
          <form className="form" autoComplete="off" onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
             <input
+               required
                value={values.email}
                onChange={handleChange}
                name="email"
@@ -38,6 +39,7 @@ const Login = () => {
                id="email" />
             <label htmlFor="password">Password</label>
             <input
+               required
                value={values.password}
                onChange={handleChange}
                name="password"

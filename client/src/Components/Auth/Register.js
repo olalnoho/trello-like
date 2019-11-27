@@ -29,6 +29,7 @@ const Register = () => {
          <form className="form" autoComplete="off" onSubmit={handleSubmit}>
             <label htmlFor="name">Full name</label>
             <input
+               required
                value={values.name}
                onChange={handleChange}
                name="name"
@@ -36,6 +37,7 @@ const Register = () => {
                id="name" />
             <label htmlFor="email">Email</label>
             <input
+               required
                value={values.email}
                onChange={handleChange}
                name="email"
@@ -43,6 +45,7 @@ const Register = () => {
                id="email" />
             <label htmlFor="username">Username</label>
             <input
+               required
                value={values.username}
                onChange={handleChange}
                name="username"
@@ -50,6 +53,7 @@ const Register = () => {
                id="username" />
             <label htmlFor="password">Password</label>
             <input
+               required
                value={values.password}
                onChange={handleChange}
                name="password"
