@@ -34,7 +34,7 @@ const Landing = () => {
                   <h1> Welcome, {user.username} </h1>
                ) :
                   (
-                     <h1>Welcome to the session test website!</h1>
+                     <h1> Tracking and organizing projects made simple.  </h1>
                   )}
             <div className="landing__box-actions">
                {isAuth ? authLinks : guestLinks}
