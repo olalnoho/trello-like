@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import Modal from '../UI/Modal'
 import AddForm from './AddForm'
+import Project from './Project'
 
 const Dashboard = () => {
    const [showModal, setShowModal] = useState(false)
+   const [projects, setProjects] = useState([])
+   useEffect(() => {
+      axios.get('/api/projects')
+         .then(res => {
+            setProjects(res.data)
+         })
+   }, [])
+
    return (
       <div className="container dashboard">
          <Modal
@@ -16,7 +27,7 @@ const Dashboard = () => {
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            <AddForm />
+            <AddForm setProjects={setProjects}/>
          </Modal>
          <div className="dashboard__add">
             <strong>Add project</strong>
@@ -27,63 +38,7 @@ const Dashboard = () => {
             </div>
          </div>
          <div className="dashboard__projects">
-            <div className="project center">
-               <h3>Project 1</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 2</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 3</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
-            <div className="project center">
-               <h3>Project 5</h3>
-            </div>
+            {projects.map(p => <Project key={p.id} project={p} />)}
          </div>
       </div>
    )

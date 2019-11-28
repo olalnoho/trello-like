@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
-const AddForm = () => {
+import axios from 'axios'
+const AddForm = ({setProjects}) => {
    const [title, setTitle] = useState('')
+
+   const onSubmit = async e => {
+      e.preventDefault()
+      const res = await axios.post('/api/projects', { title })
+      setProjects(projects => ([
+         res.data,
+         ...projects,
+      ]))
+      setTitle('')
+   }
    return (
-      <form className="form" autoComplete="off">
+      <form className="form" autoComplete="off" onSubmit={onSubmit}>
          <label htmlFor="title">Title</label>
          <input
             value={title}

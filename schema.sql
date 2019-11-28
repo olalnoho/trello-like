@@ -13,23 +13,23 @@ CREATE TABLE users (
 
 CREATE TABLE projects (
    id SERIAL PRIMARY KEY,
-   title VARCHAR(255),
-   creator INT,
+   title VARCHAR(255) NOT NULL,
+   creator INT NOT NULL,
    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    FOREIGN KEY(creator) REFERENCES users(id)
 );
 
 CREATE TABLE lists (
    id SERIAL PRIMARY KEY,
-   title VARCHAR(255),
-   project INT,
+   title VARCHAR(255) NOT NULL,
+   project INT NOT NULL,
    FOREIGN KEY(project) REFERENCES projects(id)
 );
 
 CREATE TABLE tasks (
-   title VARCHAR(255),
+   title VARCHAR(255) NOT NULL,
    "description" VARCHAR(255),
-   list INT,
+   list INT NOT NULL,
    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    FOREIGN KEY(list) REFERENCES lists(id)
 );

@@ -309,12 +309,16 @@
           flex: 1;
   display: -ms-grid;
   display: grid;
+  -ms-flex-line-pack: start;
+      align-content: start;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 .dashboard__projects .project {
+  cursor: pointer;
+  max-height: 50%;
   border: 1px solid white;
   background-color: darkslateblue;
   color: white;
