@@ -4,7 +4,7 @@ const Projects = () => {
    return (
       <div className="container projects">
          <div className="dashboard__add">
-            <h3 className="heading-3">Add List</h3>
+            <h3 className="heading-3 light">Add List</h3>
             <div onClick={e => {
             }} className="pointer">
                <span className="add-project"></span>
@@ -86,8 +86,6 @@ const Projects = () => {
                   <h3> List title </h3>
                </header>
                <ul className="list-body">
-                  <li>This is some </li>
-                  <li>This is some </li>
                </ul>
             </div>
             <div className="projects__lists-list">

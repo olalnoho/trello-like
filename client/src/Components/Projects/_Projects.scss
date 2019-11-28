@@ -1,26 +1,25 @@
 .projects {
   margin-top: 6rem;
-  color: white;
   overflow-x: auto;
 
   &__lists {
     padding: 0.4rem 2rem;
     flex: 1;
-    display: grid;
-    gap: 2rem;
     display: flex;
     align-items: flex-start;
+
     &-list {
       padding: 1rem;
-      border-radius: 1rem;
       background-color: $list-color;
+
       min-width: 30rem;
-      max-height: 60rem;
-      overflow: auto;
+      max-height: 70rem;
+
+      border-radius: 1rem;
+      margin-right: 1rem;
+
       display: flex;
       flex-direction: column;
-      margin-right: 1rem;
-      color: black;
 
       h3 {
         font-size: 2rem;
@@ -31,8 +30,7 @@
       }
 
       .list-body {
-        width: 100%;
-
+        overflow: auto;
         li {
           font-size: 1.4rem;
           border: 1px solid white;

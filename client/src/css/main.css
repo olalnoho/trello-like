@@ -18,6 +18,10 @@
   margin-bottom: 1rem;
 }
 
+.light {
+  color: white;
+}
+
 .btn {
   padding: 0.8rem 2rem;
 }
@@ -132,7 +136,6 @@
 
 .projects {
   margin-top: 6rem;
-  color: white;
   overflow-x: auto;
 }
 
@@ -141,9 +144,6 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  display: -ms-grid;
-  display: grid;
-  gap: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,11 +154,11 @@
 
 .projects__lists-list {
   padding: 1rem;
-  border-radius: 1rem;
   background-color: #ebecf0;
   min-width: 30rem;
-  max-height: 60rem;
-  overflow: auto;
+  max-height: 70rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,8 +166,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 1rem;
-  color: black;
 }
 
 .projects__lists-list h3 {
@@ -179,7 +177,7 @@
 }
 
 .projects__lists-list .list-body {
-  width: 100%;
+  overflow: auto;
 }
 
 .projects__lists-list .list-body li {
