@@ -31,50 +31,6 @@ const Projects = () => {
                <h3> List title </h3>
                <ul></ul>
             </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
-            <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
-            </div>
          </div>
       </div>
    )
