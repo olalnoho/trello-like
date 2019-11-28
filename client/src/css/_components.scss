@@ -65,3 +65,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.add-project {
+  cursor: pointer;
+  height: 2rem;
+  width: 2px;
+  background-color: #fff;
+
+  &::after {
+    content: "";
+    height: 2rem;
+    width: 2px;
+    display: block;
+    background-color: #fff;
+    transform: rotate(90deg);
+  }
+}

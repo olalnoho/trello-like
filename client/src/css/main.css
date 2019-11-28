@@ -1,4 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Hind&display=swap");
+.lead {
+  font-size: 1.4rem;
+}
+
+.heading-1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.heading-2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heading-3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 .btn {
   padding: 0.8rem 2rem;
 }
@@ -84,6 +103,23 @@
           justify-content: center;
 }
 
+.add-project {
+  cursor: pointer;
+  height: 2rem;
+  width: 2px;
+  background-color: #fff;
+}
+
+.add-project::after {
+  content: "";
+  height: 2rem;
+  width: 2px;
+  display: block;
+  background-color: #fff;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -92,6 +128,61 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.45);
   z-index: 10;
+}
+
+.projects {
+  color: white;
+}
+
+.projects__lists {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.projects__lists-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projects__lists-list h3 {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.projects__lists-list ul {
+  min-height: 50rem;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid white;
+}
+
+@media only screen and (max-width: 700px) {
+  .projects {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 11rem;
+  }
 }
 
 .modal {
@@ -278,26 +369,8 @@
           align-items: center;
 }
 
-.dashboard__add .add-project {
-  cursor: pointer;
-  height: 2rexm;
-  width: 2px;
-  background-color: #fff;
-}
-
-.dashboard__add .add-project::after {
-  content: "";
-  height: 2rem;
-  width: 2px;
-  display: block;
-  background-color: #fff;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
 .dashboard__add strong {
   text-align: center;
-  font-size: 2rem;
   display: block;
   margin-bottom: 1rem;
 }

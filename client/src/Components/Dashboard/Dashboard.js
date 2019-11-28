@@ -34,7 +34,7 @@ const Dashboard = () => {
             <AddForm setProjects={setProjects} closeModal={closeModal} />
          </Modal>
          <div className="dashboard__add">
-            <strong>Add project</strong>
+            <h3 className="heading-3">Add project</h3>
             <div onClick={e => {
                setShowModal(true)
             }} className="pointer">

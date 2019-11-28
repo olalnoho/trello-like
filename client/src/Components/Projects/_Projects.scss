@@ -1,0 +1,32 @@
+.projects {
+  color: white;
+  &__lists {
+    flex: 1;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    &-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h3 {
+        font-size: 2.4rem;
+        text-align: center;
+      }
+      ul {
+        min-height: 50rem;
+        width: 100%;
+        flex: 1;
+        border: 1px solid white;
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 700px) {
+  .projects {
+    flex-direction: column;
+    margin-top: 11rem;
+  }
+}
