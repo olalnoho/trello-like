@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-const AddForm = ({setProjects}) => {
+const AddForm = ({setProjects, closeModal}) => {
    const [title, setTitle] = useState('')
 
    const onSubmit = async e => {
@@ -11,6 +11,7 @@ const AddForm = ({setProjects}) => {
          ...projects,
       ]))
       setTitle('')
+      closeModal()
    }
    return (
       <form className="form" autoComplete="off" onSubmit={onSubmit}>

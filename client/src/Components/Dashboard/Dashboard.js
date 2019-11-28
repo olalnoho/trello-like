@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
 import Modal from '../UI/Modal'
@@ -15,19 +15,23 @@ const Dashboard = () => {
          })
    }, [])
 
+   const closeModal = useCallback(e => {
+      setShowModal(false)
+   }, [setShowModal])
+
    return (
       <div className="container dashboard">
          <Modal
             show={showModal}
             className="dashboard-modal"
-            onCancel={e => setShowModal(false)}
+            onCancel={closeModal}
             header={<h2>
                Add a new Project
             </h2>}
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            <AddForm setProjects={setProjects}/>
+            <AddForm setProjects={setProjects} closeModal={closeModal} />
          </Modal>
          <div className="dashboard__add">
             <strong>Add project</strong>
