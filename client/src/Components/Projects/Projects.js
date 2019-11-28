@@ -12,8 +12,10 @@ const Projects = () => {
          </div>
          <div className="projects__lists">
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
                   <li>This is some really long text to test something</li>
                   <li>This is some </li>
                   <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
@@ -26,37 +28,76 @@ const Projects = () => {
                </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
                   <li>This is some </li>
                   <li>This is some </li>
                </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
                   <li>This is some </li>
                </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
             </div>
             <div className="projects__lists-list">
-               <h3> List title </h3>
-               <ul></ul>
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
+            </div>
+            <div className="projects__lists-list">
+               <header className="list-header">
+                  <h3> List title </h3>
+               </header>
+               <ul className="list-body">
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
             </div>
          </div>
       </div>
