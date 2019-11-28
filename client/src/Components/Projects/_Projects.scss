@@ -7,8 +7,8 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, 30rem);
-    align-content: start;
     justify-content: center;
+    align-items: start;
     &-list {
       display: flex;
       flex-direction: column;
@@ -19,11 +19,19 @@
         text-align: center;
       }
       ul {
+        overflow: auto;
         background-color: white;
         // Remember this
         min-height: 50rem;
+        max-height: 50rem;
         width: 100%;
         flex: 1;
+
+        li {
+          border: 1px solid white;
+          padding: 1rem;
+          background-color: darkslategrey;
+        }
       }
     }
   }

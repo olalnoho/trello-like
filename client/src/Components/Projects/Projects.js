@@ -13,6 +13,33 @@ const Projects = () => {
          <div className="projects__lists">
             <div className="projects__lists-list">
                <h3> List title </h3>
+               <ul>
+                  <li>This is some really long text to test something</li>
+                  <li>This is some </li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+                  <li>This is some</li>
+                  <li>This is some really long text to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhaps to test something asdasdasdadsasdreally cool perhapsto test something asdasdasdadsasdreally cool perhaps</li>
+               </ul>
+            </div>
+            <div className="projects__lists-list">
+               <h3> List title </h3>
+               <ul>
+                  <li>This is some </li>
+                  <li>This is some </li>
+               </ul>
+            </div>
+            <div className="projects__lists-list">
+               <h3> List title </h3>
+               <ul>
+                  <li>This is some </li>
+               </ul>
+            </div>
+            <div className="projects__lists-list">
+               <h3> List title </h3>
                <ul></ul>
             </div>
             <div className="projects__lists-list">
