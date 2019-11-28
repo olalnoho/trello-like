@@ -49,15 +49,32 @@
     gap: 2rem;
 
     .project {
-      cursor: pointer;
+      display: flex;
+      flex-direction: column;
       max-height: 50%;
       border: 1px solid white;
       background-color: $secondary-color;
       color: white;
       min-height: 30rem;
       transition: all 0.34s;
+      justify-content: space-evenly;
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        font-size: 1.5rem;
+        text-align: center;
+        min-width: 30%;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
 
       &:hover {
+        .btn {
+          opacity: 1;
+        }
         transform: translateY(-0.7rem);
         box-shadow: 1px 2px 0.4rem black;
       }
@@ -103,7 +120,7 @@
       }
 
       input[type="submit"] {
-        color: white; 
+        color: white;
       }
     }
   }
@@ -134,7 +151,6 @@
     }
   }
 }
-
 
 @media only screen and(max-width: 600px) {
   .dashboard__projects {

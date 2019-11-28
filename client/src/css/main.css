@@ -317,7 +317,13 @@
 }
 
 .dashboard__projects .project {
-  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   max-height: 50%;
   border: 1px solid white;
   background-color: darkslateblue;
@@ -325,6 +331,22 @@
   min-height: 30rem;
   -webkit-transition: all 0.34s;
   transition: all 0.34s;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.dashboard__projects .project h3 {
+  font-size: 2rem;
+}
+
+.dashboard__projects .project .btn {
+  font-size: 1.5rem;
+  text-align: center;
+  min-width: 30%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
 }
 
 .dashboard__projects .project:hover {
@@ -332,6 +354,10 @@
           transform: translateY(-0.7rem);
   -webkit-box-shadow: 1px 2px 0.4rem black;
           box-shadow: 1px 2px 0.4rem black;
+}
+
+.dashboard__projects .project:hover .btn {
+  opacity: 1;
 }
 
 .dashboard-modal {

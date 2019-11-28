@@ -1,9 +1,10 @@
 import React from 'react'
-
-const Project = ({project}) => {
+import { Link } from 'react-router-dom'
+const Project = ({ project }) => {
    return (
       <div className="project center">
          <h3>{project.title}</h3>
+         <Link className="btn btn--primary" to={`/projects/${project.id}`}>View</Link>
       </div>
    )
 }
