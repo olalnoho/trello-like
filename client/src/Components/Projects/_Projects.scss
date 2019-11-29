@@ -47,8 +47,6 @@
       }
 
       .list-body {
-        // min-height is for dropping into an empty list.
-        min-height: 2rem;
         overflow: auto;
         li {
           cursor: grab;

@@ -202,7 +202,6 @@
 }
 
 .projects__lists-list .list-body {
-  min-height: 2rem;
   overflow: auto;
 }
 
