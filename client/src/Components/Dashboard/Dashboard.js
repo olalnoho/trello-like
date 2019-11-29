@@ -42,7 +42,7 @@ const Dashboard = () => {
             </div>
          </div>
          <div className="dashboard__projects">
-            {projects.map(p => <Project key={p.id} project={p} />)}
+            {projects.map(p => <Project key={p._id} project={p} />)}
          </div>
       </div>
    )

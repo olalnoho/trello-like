@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const Project = require('../db/Projects')
 const db = require('../db/db')
 
 router.post('/', async (req, res) => {
@@ -11,10 +12,12 @@ router.post('/', async (req, res) => {
    }
 
    try {
-      const [project] = await db('projects').insert({
+      const project = new Project({
          title,
          creator: req.session.userId
-      }, '*')
+      })
+
+      await project.save()
 
       res.json(project)
 
@@ -28,12 +31,11 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
    try {
-      const projects = await db('projects').select('*').where({
+      const projects = await Project.find({
          creator: req.session.userId
       })
       return res.json(projects)
    } catch (err) {
-      console.log(err)
       return res.status(500).json({
          success: false,
          message: 'Server error'

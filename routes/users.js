@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
-const db = require('../db/db')
+const User = require('../db/User')
 
 router.post('/register', async (req, res) => {
    const { username, email, password, name } = req.body
@@ -12,17 +12,24 @@ router.post('/register', async (req, res) => {
    }
 
    const hashedPw = await bcrypt.hash(password, 10)
-   
-   const [user] = await db('users')
-      .insert({
-         username,
-         password: hashedPw,
-         email: email.toLowerCase(),
-         name
-      }, ['username', 'name', 'email', 'id'])
 
-   req.session.userId = user.id
-   return res.json(user)
+   const user = new User({
+      username,
+      password: hashedPw,
+      email: email.toLowerCase(),
+      name
+   })
+
+   await user.save()
+
+   req.session.userId = user._id
+   
+   return res.json({
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      name: user.name
+   })
 })
 
 module.exports = router

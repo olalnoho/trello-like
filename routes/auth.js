@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const User = require('../db/User')
 const bcrypt = require('bcryptjs')
 const db = require('../db/db')
 
@@ -11,9 +12,9 @@ router.post('/login', async (req, res) => {
       })
    }
    try {
-      const [user] = await db('users')
-         .select('*')
-         .where({ email })
+      const user = await User.findOne({
+         email 
+      }, '+password')
 
       if (!user) {
          return res.status(401).json({
@@ -75,9 +76,7 @@ router.get('/me', async (req, res) => {
       })
    }
 
-   const [user] = await db('users')
-      .select('username', 'email', 'name', 'id')
-      .where({ id: userId })
+   const user = await User.findById(req.session.userId)
 
    res.json(user)
 })

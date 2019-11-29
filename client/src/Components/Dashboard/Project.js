@@ -4,7 +4,7 @@ const Project = ({ project }) => {
    return (
       <div className="project center">
          <h3>{project.title}</h3>
-         <Link className="btn btn--primary" to={`/projects/${project.id}`}>View Project</Link>
+         <Link className="btn btn--primary" to={`/projects/${project._id}`}>View Project</Link>
       </div>
    )
 }

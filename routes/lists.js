@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const db = require('../db/db')
+const Project = require('../db/Projects')
 
 router.post('/:id', async (req, res) => {
    const { title } = req.body
@@ -12,13 +13,11 @@ router.post('/:id', async (req, res) => {
       })
    }
    try {
-      const [list] = await db('lists').insert({
-         title,
-         project: id,
-      }, ['title', 'id'])
+      const project = await Project.findById(id)
+      const lists = await project.addList({ title })
+      return res.json(lists)
+   } catch (err) {
 
-      return res.json(list)
-   } catch {
       return res.status(500).json({
          success: false,
          message: 'Server error'
@@ -36,13 +35,13 @@ router.get('/:id', async (req, res) => {
    }
 
    try {
-      const lists = await db('lists')
-         .select('*')
-         .where({ project: id })
+
+      const { lists } = await Project.findOne({
+         _id: id
+      })
 
       return res.json(lists)
    } catch (err) {
-      console.log(err)
       return res.status(500).json({
          success: false,
          message: 'Server error'
@@ -50,25 +49,27 @@ router.get('/:id', async (req, res) => {
    }
 })
 
-router.post('/:id/tasks', async (req, res) => {
+router.post('/:projectId/:listId/tasks', async (req, res) => {
    const { title } = req.body
-   const { id } = req.params
+   const { projectId, listId } = req.params
 
-   if (!title || !id) {
+   if (!title || !listId || !projectId) {
       return res.status(400).json({
          success: false,
          message: 'Missing required params'
       })
    }
    try {
-      const [task] = await db('tasks').insert({
-         title,
-         list: id,
-         creator: req.session.userId,
-      }, '*')
+      const project = await Project.findOne({
+         _id: projectId
+      })
 
-      res.json(task)
-   } catch {
+      const tasks = await project.addTask(listId, {
+         title
+      })
+
+      res.json(tasks)
+   } catch (err) {
       return res.status(500).json({
          success: false,
          message: 'Server error'
@@ -76,12 +77,23 @@ router.post('/:id/tasks', async (req, res) => {
    }
 })
 
-router.get('/:id/tasks', async (req, res) => {
-   const tasks = await db('tasks').select('*').where({
-      list: req.params.id
-   })
+router.get('/:projectId/:listId/tasks', async (req, res) => {
+   const { projectId, listId } = req.params
+   try {
+   
+      const project = await Project.findOne({
+         _id: projectId
+      })
 
-   return res.json(tasks)
+      const tasks = await project.getTasks(listId)
+      return res.json(tasks)
+   
+   } catch (error) {
+      return res.status(500).json({
+         success: false,
+         message: 'Server error'
+      })
+   }
 })
 
 module.exports = router

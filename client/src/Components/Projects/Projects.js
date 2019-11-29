@@ -9,7 +9,6 @@ const Projects = props => {
    const [lists, setLists] = useState([])
    const [showModal, setShowModal] = useState(false)
 
-
    useEffect(() => {
       axios.get(`/api/lists/${id}`)
          .then(({ data }) => {
@@ -35,7 +34,7 @@ const Projects = props => {
          >
             <AddForm url={`/api/lists/${id}`} setProjects={setLists} closeModal={closeModal} />
          </Modal>
-         
+
          <div className="container projects">
             <div className="dashboard__add">
                <h3 className="heading-3 light">Add List</h3>
@@ -44,7 +43,7 @@ const Projects = props => {
                </div>
             </div>
             <div className="projects__lists">
-               {lists.map(list => <List projectId={id} key={list.id} list={list} />)}
+               {lists.map(list => <List tasks={list.tasks} projectId={id} key={list._id} list={list} />)}
             </div>
          </div>
       </>

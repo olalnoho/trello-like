@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-const List = ({ list, projectId }) => {
+const List = ({ list, tasks: initTasks, projectId }) => {
+   const [tasks, setTasks] = useState(initTasks || [])
    const [title, setTitle] = useState('')
-   const [tasks, setTasks] = useState([])
-   const listId = list.id
-
-   useEffect(() => {
-      axios.get(`/api/lists/${listId}/tasks`)
-         .then(res => {
-            setTasks(res.data)
-         })
-   }, [listId])
+   const listId = list._id
 
    const onSubmit = e => {
       e.preventDefault()
-      axios.post(`/api/lists/${listId}/tasks`, { title })
+      axios.post(`/api/lists/${projectId}/${list._id}/tasks`, { title })
          .then(res => {
-            setTasks(tasks => ([
-               ...tasks,
-               res.data,
-            ]))
+            setTasks(res.data)
             setTitle('')
          })
    }
@@ -33,7 +23,7 @@ const List = ({ list, projectId }) => {
                </header>
                <ul className="list-body">
                   {tasks.map((t, index) => {
-                     return <Draggable index={index} key={t.id} draggableId={String(t.id)}>
+                     return <Draggable index={index} key={t._id} draggableId={String(t._id)}>
                         {provider => (
                            <li index={index} {...provider.dragHandleProps} ref={provider.innerRef} {...provider.draggableProps}> {t.title} </li>
                         )}
