@@ -31,7 +31,7 @@ const Dashboard = () => {
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            <AddForm setProjects={setProjects} closeModal={closeModal} />
+            <AddForm url="/api/projects" setProjects={setProjects} closeModal={closeModal} />
          </Modal>
          <div className="dashboard__add">
             <h3 className="heading-3">Add project</h3>

@@ -28,9 +28,12 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
    try {
-      const projects = await db('projects').select('*')
+      const projects = await db('projects').select('*').where({
+         creator: req.session.userId
+      })
       return res.json(projects)
    } catch (err) {
+      console.log(err)
       return res.status(500).json({
          success: false,
          message: 'Server error'

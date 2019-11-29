@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-const AddForm = ({setProjects, closeModal}) => {
+const AddForm = ({ url, setProjects, closeModal }) => {
    const [title, setTitle] = useState('')
 
    const onSubmit = async e => {
       e.preventDefault()
-      const res = await axios.post('/api/projects', { title })
+      const res = await axios.post(url, { title })
+      console.log(res.data)
       setProjects(projects => ([
          res.data,
          ...projects,
