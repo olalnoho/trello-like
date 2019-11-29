@@ -177,10 +177,13 @@
 }
 
 .projects__lists-list .list-body {
+  min-height: 2rem;
   overflow: auto;
 }
 
 .projects__lists-list .list-body li {
+  cursor: -webkit-grab;
+  cursor: grab;
   font-size: 1.4rem;
   border: 1px solid white;
   padding: 1rem;

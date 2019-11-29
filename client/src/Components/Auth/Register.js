@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
-import useFormValidation from '../../hooks/useFormValidation'
+import useForm from '../../hooks/useForm'
 
 const Register = () => {
    const { authDetails, setAuthDetails } = useContext(AuthContext)
-   const { handleChange, values } = useFormValidation({
+   const { handleChange, values } = useForm({
       name: '',
       username: '',
       password: '',

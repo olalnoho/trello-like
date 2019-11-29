@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useFormValidation = initState => {
+const useForm = initState => {
    const [values, setValues] = useState(initState)
 
    const handleChange = e => {
@@ -13,4 +13,4 @@ const useFormValidation = initState => {
    }
 }
 
-export default useFormValidation
+export default useForm
