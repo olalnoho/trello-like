@@ -168,6 +168,31 @@
           flex-direction: column;
 }
 
+.projects__lists-list .form {
+  margin-top: 1rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.projects__lists-list .form input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid orangered;
+  margin: 0;
+  color: black;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.projects__lists-list .form input[type="submit"] {
+  color: white;
+}
+
 .projects__lists-list h3 {
   font-size: 2rem;
 }

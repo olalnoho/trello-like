@@ -44,7 +44,7 @@ const Projects = props => {
                </div>
             </div>
             <div className="projects__lists">
-               {lists.map(list => <List key={list.id} list={list} />)}
+               {lists.map(list => <List projectId={id} key={list.id} list={list} />)}
             </div>
          </div>
       </>

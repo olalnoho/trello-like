@@ -37,14 +37,63 @@ router.get('/:id', async (req, res) => {
 
    try {
       const lists = await db('lists')
-         .select('title', 'id')
-         .where({
-            project: id
-         })
+         .select('*')
+         .where({ project: id })
 
       return res.json(lists)
-   } catch {
-
+   } catch (err) {
+      console.log(err)
+      return res.status(500).json({
+         success: false,
+         message: 'Server error'
+      })
    }
 })
+
+/*
+   title VARCHAR(255) NOT NULL,
+   "description" VARCHAR(255),
+   list INT NOT NULL,
+   creator INT,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   FOREIGN KEY(list) REFERENCES lists(id),
+   FOREIGN KEY(creator) REFERENCES users(id)
+
+*/
+
+router.post('/:id/tasks', async (req, res) => {
+   const { title } = req.body
+   const { id } = req.params
+   console.log(id)
+
+   if (!title || !id) {
+      return res.status(400).json({
+         success: false,
+         message: 'Missing required params'
+      })
+   }
+   try {
+      const [task] = await db('tasks').insert({
+         title,
+         list: id,
+         creator: req.session.userId,
+      }, '*')
+
+      res.json(task)
+   } catch {
+      return res.status(500).json({
+         success: false,
+         message: 'Server error'
+      })
+   }
+})
+
+router.get('/:id/tasks', async (req, res) => {
+   const tasks = await db('tasks').select('*').where({
+      list: req.params.id
+   })
+
+   return res.json(tasks)
+})
+
 module.exports = router
