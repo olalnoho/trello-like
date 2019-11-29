@@ -1,3 +1,4 @@
 node_modules
 config
 dump.rdb
+schema.sql
