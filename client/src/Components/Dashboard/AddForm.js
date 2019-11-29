@@ -6,7 +6,6 @@ const AddForm = ({ url, setProjects, closeModal }) => {
    const onSubmit = async e => {
       e.preventDefault()
       const res = await axios.post(url, { title })
-      console.log(res.data)
       setProjects(projects => ([
          res.data,
          ...projects,

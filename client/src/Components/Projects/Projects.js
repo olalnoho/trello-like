@@ -2,10 +2,13 @@ import React, { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
 import Modal from '../UI/Modal'
 import AddForm from '../Dashboard/AddForm'
+import List from './List'
 const Projects = props => {
+   const id = props.match.params.id
+
    const [lists, setLists] = useState([])
    const [showModal, setShowModal] = useState(false)
-   const id = props.match.params.id
+
 
    useEffect(() => {
       axios.get(`/api/lists/${id}`)
@@ -18,10 +21,8 @@ const Projects = props => {
       setShowModal(false)
    }, [setShowModal])
 
-   console.log(lists)
-
    return (
-      <div className="container projects">
+      <>
          <Modal
             show={showModal}
             className="dashboard-modal"
@@ -34,35 +35,19 @@ const Projects = props => {
          >
             <AddForm url={`/api/lists/${id}`} setProjects={setLists} closeModal={closeModal} />
          </Modal>
-         <div className="dashboard__add">
-            <h3 className="heading-3 light">Add List</h3>
-            <div onClick={e => {
-               setShowModal(true)
-            }} className="pointer">
-               <span className="add-project"></span>
-            </div>
-         </div>
-         <div className="projects__lists">
-            {lists.map(list => {
-               return <div key={list.id} className="projects__lists-list">
-                  <header className="list-header">
-                     <h3>{list.title}</h3>
-                  </header>
-                  <ul className="list-body">
-                     <li>Test</li>
-                  </ul>
+         
+         <div className="container projects">
+            <div className="dashboard__add">
+               <h3 className="heading-3 light">Add List</h3>
+               <div onClick={e => setShowModal(true)} className="pointer">
+                  <span className="add-project"></span>
                </div>
-            })}
-            <div className="projects__lists-list">
-               <header className="list-header">
-                  <h3> Title</h3>
-                  <ul className="list-body">
-                     <li>Cool</li>
-                  </ul>
-               </header>
+            </div>
+            <div className="projects__lists">
+               {lists.map(list => <List key={list.id} list={list} />)}
             </div>
          </div>
-      </div>
+      </>
    )
 }
 

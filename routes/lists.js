@@ -15,7 +15,7 @@ router.post('/:id', async (req, res) => {
       const [list] = await db('lists').insert({
          title,
          project: id,
-      }, ['title', 'project', 'id'])
+      }, ['title', 'id'])
 
       return res.json(list)
    } catch {
