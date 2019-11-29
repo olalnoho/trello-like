@@ -50,21 +50,9 @@ router.get('/:id', async (req, res) => {
    }
 })
 
-/*
-   title VARCHAR(255) NOT NULL,
-   "description" VARCHAR(255),
-   list INT NOT NULL,
-   creator INT,
-   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-   FOREIGN KEY(list) REFERENCES lists(id),
-   FOREIGN KEY(creator) REFERENCES users(id)
-
-*/
-
 router.post('/:id/tasks', async (req, res) => {
    const { title } = req.body
    const { id } = req.params
-   console.log(id)
 
    if (!title || !id) {
       return res.status(400).json({

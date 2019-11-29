@@ -5,7 +5,6 @@ const List = ({ list, projectId }) => {
    const [title, setTitle] = useState('')
    const [tasks, setTasks] = useState([])
    const listId = list.id
-   console.log(listId)
 
    useEffect(() => {
       axios.get(`/api/lists/${listId}/tasks`)
@@ -19,9 +18,10 @@ const List = ({ list, projectId }) => {
       axios.post(`/api/lists/${listId}/tasks`, { title })
          .then(res => {
             setTasks(tasks => ([
+               ...tasks,
                res.data,
-               ...tasks
             ]))
+            setTitle('')
          })
    }
    return (
@@ -43,7 +43,7 @@ const List = ({ list, projectId }) => {
                </ul>
                <form className="form" onSubmit={onSubmit}>
                   <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-                  <input type="submit" className="btn btn--primary" />
+                  <input type="submit" value="+" className="btn btn--secondary" />
                </form>
             </div>
          )}
