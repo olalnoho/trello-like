@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-const List = ({ list, tasks: initTasks, projectId }) => {
-   const [tasks, setTasks] = useState(initTasks || [])
+const List = ({ list, tasks: initTasks, projectId, addTask }) => {
+   // const [tasks, setTasks] = useState(initTasks || [])
    const [title, setTitle] = useState('')
    const listId = list._id
 
@@ -10,7 +10,7 @@ const List = ({ list, tasks: initTasks, projectId }) => {
       e.preventDefault()
       axios.post(`/api/lists/${projectId}/${list._id}/tasks`, { title })
          .then(res => {
-            setTasks(res.data)
+            addTask(list._id, res.data)
             setTitle('')
          })
    }
@@ -22,7 +22,7 @@ const List = ({ list, tasks: initTasks, projectId }) => {
                   <h3>{list.title}</h3>
                </header>
                <ul className="list-body">
-                  {tasks.map((t, index) => {
+                  {initTasks.map((t, index) => {
                      return <Draggable index={index} key={t._id} draggableId={String(t._id)}>
                         {provider => (
                            <li index={index} {...provider.dragHandleProps} ref={provider.innerRef} {...provider.draggableProps}> {t.title} </li>

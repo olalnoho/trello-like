@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-const AddForm = ({ url, setProjects, closeModal }) => {
+const AddForm = ({ url, callback, closeModal }) => {
    const [title, setTitle] = useState('')
 
    const onSubmit = async e => {
       e.preventDefault()
       const res = await axios.post(url, { title })
-      setProjects(res.data)
+      callback(res.data)
       setTitle('')
       closeModal()
    }

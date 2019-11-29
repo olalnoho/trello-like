@@ -1,11 +1,3 @@
-// ID SERIAL PRIMARY KEY,
-// title VARCHAR(255) NOT NULL,
-// "description" VARCHAR(255),
-// list INT NOT NULL,
-// creator INT,
-// created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-// FOREIGN KEY(list) REFERENCES lists(id),
-// FOREIGN KEY(creator) REFERENCES users(id)
 const mongoose = require('mongoose')
 
 const projectSchema = new mongoose.Schema({

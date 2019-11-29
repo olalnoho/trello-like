@@ -19,6 +19,13 @@ const Dashboard = () => {
       setShowModal(false)
    }, [setShowModal])
 
+   const formCallback = useCallback(data => {
+      setProjects(prev => ([
+         ...prev,
+         data
+      ]))
+   }, [])
+
    return (
       <div className="container dashboard">
          <Modal
@@ -31,7 +38,7 @@ const Dashboard = () => {
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            <AddForm url="/api/projects" setProjects={setProjects} closeModal={closeModal} />
+            <AddForm url="/api/projects" callback={formCallback} closeModal={closeModal} />
          </Modal>
          <div className="dashboard__add">
             <h3 className="heading-3">Add project</h3>

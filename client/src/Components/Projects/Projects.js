@@ -23,7 +23,7 @@ const Projects = props => {
    const onDragEnd = result => {
       const { source, destination, draggableId } = result
 
-      if(!destination) return
+      if (!destination) return
 
       const fromContainer = lists.find(list => list._id === source.droppableId)
       const toContainer = lists.find(list => list._id === destination.droppableId)
@@ -35,6 +35,17 @@ const Projects = props => {
    const closeModal = useCallback(e => {
       setShowModal(false)
    }, [setShowModal])
+
+   const formCallback = useCallback(data => {
+      setLists(data)
+   }, [])
+
+   const addTask = useCallback((listId, data) => {
+      const copy = lists.slice()
+      const list = copy.find(l => l._id === listId)
+      list.tasks = data
+      setLists(copy)
+   }, [lists])
 
    return (
       <>
@@ -48,7 +59,7 @@ const Projects = props => {
             headerClass="dashboard-modal__header"
             contentClass="dashboard-modal__content"
          >
-            <AddForm url={`/api/lists/${id}`} setProjects={setLists} closeModal={closeModal} />
+            <AddForm url={`/api/lists/${id}`} callback={formCallback} closeModal={closeModal} />
          </Modal>
          <DragDropContext onDragEnd={onDragEnd}>
             <div className="container projects">
@@ -59,7 +70,7 @@ const Projects = props => {
                   </div>
                </div>
                <div className="projects__lists">
-                  {lists.map(list => <List tasks={list.tasks} projectId={id} key={list._id} list={list} />)}
+                  {lists.map(list => <List addTask={addTask} tasks={list.tasks} projectId={id} key={list._id} list={list} />)}
                </div>
             </div>
          </DragDropContext>
