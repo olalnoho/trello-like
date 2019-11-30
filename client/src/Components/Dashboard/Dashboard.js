@@ -8,6 +8,7 @@ import Project from './Project'
 const Dashboard = () => {
    const [showModal, setShowModal] = useState(false)
    const [projects, setProjects] = useState([])
+   
    useEffect(() => {
       axios.get('/api/projects')
          .then(res => {

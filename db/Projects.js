@@ -38,17 +38,19 @@ const projectSchema = new mongoose.Schema({
 projectSchema.methods.addList = async function (obj) {
    this.lists.push(obj)
    const { lists } = await this.save()
-   return lists
+   const addedList = this.lists[this.lists.length - 1]
+   return addedList
 }
 
 projectSchema.methods.addTask = async function (listId, task) {
    const list = this.lists.find(l => l._id == listId)
    list.tasks.push(task)
    await this.save()
-   return list.tasks
+   const newTask = list.tasks[list.tasks.length - 1]
+   return newTask
 }
 
-projectSchema.methods.getTasks = async function(listId) {
+projectSchema.methods.getTasks = async function (listId) {
    const list = this.find(l => l._id == listId)
    return list.tasks
 }

@@ -14,8 +14,8 @@ router.post('/:id', async (req, res) => {
    }
    try {
       const project = await Project.findById(id)
-      const lists = await project.addList({ title })
-      return res.json(lists)
+      const list = await project.addList({ title })
+      return res.json(list)
    } catch (err) {
 
       return res.status(500).json({
@@ -64,11 +64,11 @@ router.post('/:projectId/:listId/tasks', async (req, res) => {
          _id: projectId
       })
 
-      const tasks = await project.addTask(listId, {
+      const task = await project.addTask(listId, {
          title
       })
 
-      res.json(tasks)
+      res.json(task)
    } catch (err) {
       return res.status(500).json({
          success: false,

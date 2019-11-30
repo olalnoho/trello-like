@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import axios from 'axios'
 
-
 import Modal from '../UI/Modal'
 import AddForm from '../Dashboard/AddForm'
 import List from './List'
@@ -34,16 +33,18 @@ const Projects = props => {
 
    const closeModal = useCallback(e => {
       setShowModal(false)
-   }, [setShowModal])
+   }, [])
 
    const formCallback = useCallback(data => {
-      setLists(data)
+      setLists(prev => {
+         return [...prev, data]
+      })
    }, [])
 
    const addTask = useCallback((listId, data) => {
       const copy = lists.slice()
       const list = copy.find(l => l._id === listId)
-      list.tasks = data
+      list.tasks.push(data)
       setLists(copy)
    }, [lists])
 
