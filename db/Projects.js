@@ -37,7 +37,8 @@ const projectSchema = new mongoose.Schema({
 
 projectSchema.methods.addList = async function (obj) {
    this.lists.push(obj)
-   const { lists } = await this.save()
+   await this.save()
+   // To get ID
    const addedList = this.lists[this.lists.length - 1]
    return addedList
 }
