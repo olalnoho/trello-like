@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
-import axios from 'axios'
+import axios from '../../utils/axios'
 import { AuthContext } from '../../Context/AuthContext'
 import { Redirect } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
+
 const Login = () => {
    const { authDetails, setAuthDetails } = useContext(AuthContext)
    const [hasErrors, setHasErrors] = useState(false)
@@ -19,7 +20,9 @@ const Login = () => {
       e.preventDefault()
       axios.post('/api/auth/login', { ...values })
          .then(({ data }) => {
-            setAuthDetails({ ...authDetails, user: data, isAuth: true })
+            localStorage.setItem('token', data.token)
+            axios.defaults.headers.common['Authorization'] = data.token
+            setAuthDetails({ ...authDetails, user: data.user, isAuth: true })
          })
          .catch(err => {
             setHasErrors(true)

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import axios from '../../utils/axios'
 const AddForm = ({ url, callback, closeModal }) => {
    const [title, setTitle] = useState('')
 

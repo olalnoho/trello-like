@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const Project = require('../db/Projects')
-const db = require('../db/db')
+const authMw = require('../middleware/auth')
 
-router.post('/', async (req, res) => {
+router.post('/', authMw, async (req, res) => {
    const { title } = req.body
    if (!title) {
       return res.status(400).json({
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
    try {
       const project = new Project({
          title,
-         creator: req.session.userId
+         creator: req.userId
       })
 
       await project.save()
@@ -29,10 +29,10 @@ router.post('/', async (req, res) => {
    }
 })
 
-router.get('/', async (req, res) => {
+router.get('/', authMw, async (req, res) => {
    try {
       const projects = await Project.find({
-         creator: req.session.userId
+         creator: req.userId
       })
       return res.json(projects)
    } catch (err) {

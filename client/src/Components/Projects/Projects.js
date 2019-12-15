@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
-import axios from 'axios'
+import axios from '../../utils/axios'
 
 import Modal from '../UI/Modal'
 import AddForm from '../Dashboard/AddForm'

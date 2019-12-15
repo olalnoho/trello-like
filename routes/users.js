@@ -1,9 +1,11 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const User = require('../db/User')
+const genToken = require('../utils/generateToken')
 
 router.post('/register', async (req, res) => {
    const { username, email, password, name } = req.body
+   
    if (!username || !email || !password || !name) {
       return res.status(400).json({
          success: false,
@@ -21,15 +23,15 @@ router.post('/register', async (req, res) => {
    })
 
    await user.save()
-
-   req.session.userId = user._id
    
    return res.json({
+      token: genToken(user._id),
+      user: {
       id: user._id,
       username: user.username,
       email: user.email,
       name: user.name
-   })
+   }})
 })
 
 module.exports = router

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../utils/axios'
 
 import { AuthContext } from '../../Context/AuthContext'
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
    const { authDetails, setAuthDetails } = useContext(AuthContext)
    const logOut = async e => {
       try {
-         await axios.post('/api/auth/logout')
+         localStorage.removeItem('token')
          setAuthDetails({ ...authDetails, user: {}, isAuth: false })
          history.push('/')
       } catch (err) {

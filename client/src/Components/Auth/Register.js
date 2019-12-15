@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import axios from 'axios'
+import axios from '../../utils/axios'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import useForm from '../../hooks/useForm'
@@ -21,7 +21,9 @@ const Register = () => {
       e.preventDefault()
       axios.post('/api/users/register', { ...values })
          .then(({ data }) => {
-            setAuthDetails({ ...authDetails, user: data, isAuth: true })
+            localStorage.setItem('token', data.token)
+            axios.defaults.headers.common['Authorization'] = data.token
+            setAuthDetails({ ...authDetails, user: data.user, isAuth: true })
          })
    }
    return (

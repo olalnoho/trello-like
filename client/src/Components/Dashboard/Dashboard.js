@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import axios from 'axios'
+import axios from '../../utils/axios'
 
 import Modal from '../UI/Modal'
 import AddForm from './AddForm'

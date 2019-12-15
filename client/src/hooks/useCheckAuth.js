@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import axios from 'axios'
+import axios from '../utils/axios'
 
 import { AuthContext } from '../Context/AuthContext'
 // Maybe move this to the context file

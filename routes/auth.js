@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const User = require('../db/User')
 const bcrypt = require('bcryptjs')
-const db = require('../db/db')
+const genToken = require('../utils/generateToken')
+const authMw = require('../middleware/auth')
 
 router.post('/login', async (req, res) => {
    const { email, password } = req.body
@@ -34,14 +35,14 @@ router.post('/login', async (req, res) => {
          })
       }
 
-      req.session.userId = user.id
-
       res.json({
+         token: genToken(user.id),
+         user: {
          email: user.email,
          name: user.name,
          username: user.username,
          id: user.id,
-      })
+      }})
 
    } catch (err) {
       return res.status(500).json({
@@ -53,8 +54,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
    try {
-      await req.session.destroy()
-      res.clearCookie('sid')
       res.json({
          success: true,
          message: 'OK'
@@ -67,8 +66,8 @@ router.post('/logout', async (req, res) => {
    }
 })
 
-router.get('/me', async (req, res) => {
-   const { userId } = req.session
+router.get('/me', authMw, async (req, res) => {
+   const { userId } = req
    if (!userId) {
       return res.status(401).json({
          success: false,
@@ -76,7 +75,7 @@ router.get('/me', async (req, res) => {
       })
    }
 
-   const user = await User.findById(req.session.userId)
+   const user = await User.findById(userId)
 
    res.json(user)
 })

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import axios from '../../utils/axios'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 const List = ({ list, tasks, projectId, addTask }) => {
    const [title, setTitle] = useState('')
