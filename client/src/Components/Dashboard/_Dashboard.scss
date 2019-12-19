@@ -4,7 +4,6 @@
   overflow: auto;
   &__add {
     padding: 1rem;
-    // position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,6 +131,9 @@
     margin-top: 11rem;
 
     &__add {
+      position: sticky;
+      top: 0;
+      left: 0;
       margin-bottom: 2rem;
     }
   }
