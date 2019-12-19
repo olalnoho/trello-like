@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 require('./db/db')
 const app = express()
