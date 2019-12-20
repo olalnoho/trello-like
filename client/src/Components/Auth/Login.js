@@ -48,7 +48,7 @@ const Login = () => {
                name="password"
                type="password"
                id="password" />
-            <input type="submit" className="btn btn--primary" />
+            <input value="Submit" type="submit" className="btn btn--primary" />
          </form>
          {hasErrors && <p className="error"> Something went wrong </p>}
       </div>
