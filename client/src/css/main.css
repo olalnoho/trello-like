@@ -450,9 +450,8 @@
   min-height: 30rem;
   -webkit-transition: all 0.34s;
   transition: all 0.34s;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .dashboard__projects .project h3 {

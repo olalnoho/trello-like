@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
-import axios from '../../utils/axios'
 
 import { AuthContext } from '../../Context/AuthContext'
 const Header = () => {
