@@ -5,12 +5,19 @@ import { AuthContext } from '../../Context/AuthContext'
 
 const Landing = () => {
    const {
-      authDetails: {
-         user,
-         isAuth,
-         initAuthLoad
-      }
+      authDetails,
+      setAuthDetails
    } = useContext(AuthContext)
+
+   const logOut = async e => {
+      try {
+         localStorage.removeItem('token')
+         setAuthDetails({ ...authDetails, user: {}, isAuth: false })
+      } catch (err) {
+         console.log(err)
+      }
+
+   }
 
    const guestLinks = (
       <>
@@ -22,22 +29,22 @@ const Landing = () => {
    const authLinks = (
       <>
          <Link to="/dashboard" className="btn btn--primary"> Dashboard </Link>
-         <Link to="/login" className="btn btn--secondary"> Log out </Link>
+         <Link to="#!" className="btn btn--secondary" onClick={logOut}> Log out </Link>
       </>
    )
 
    return (
       <div className="landing">
-         {!initAuthLoad && <div className="landing__box">
+         {!authDetails.initAuthLoad && <div className="landing__box">
             {
-               isAuth && user.username ? (
-                  <h1> Welcome, {user.username} </h1>
+               authDetails.isAuth && authDetails.user.username ? (
+                  <h1> Welcome, {authDetails.user.username} </h1>
                ) :
                   (
                      <h1> Tracking and organizing projects made simple.  </h1>
                   )}
             <div className="landing__box-actions">
-               {isAuth ? authLinks : guestLinks}
+               {authDetails.isAuth ? authLinks : guestLinks}
             </div>
          </div>}
       </div>
